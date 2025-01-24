@@ -30,7 +30,23 @@ export interface CurrentConditions extends Details {
   condition: Condition;
 }
 
+export interface ForecastDay {
+  date: string;
+  day: {
+    maxtemp_c: number;
+    mintemp_c: number;
+    avgtemp_c: number;
+    condition: Condition;
+  };
+}
+
+export interface Forecast {
+  forecastday: ForecastDay[];
+}
+
+
 export interface CurrentWeather {
   location: Location;
   current: CurrentConditions;
+  forecast: Forecast;
 }

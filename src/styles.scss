@@ -11,4 +11,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: variables.$main-background-gradient;
   color: variables.$font-color;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

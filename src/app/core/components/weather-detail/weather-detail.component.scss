@@ -1,12 +1,13 @@
 .detail {
+  $block: &;
   background-color: transparent;
-  width: 16rem;
+  width: 13rem;
   height: 5rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  margin: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -15,6 +16,7 @@
     font-size: 2rem;
     height: 2rem;
     width: 2rem;
+    padding-right: 1rem;
   }
 
   &__content {
@@ -24,5 +26,47 @@
     align-items: center;
     padding-left: 1rem;
     font-size: 1.2rem;
+    width: 100%;
+
+    #{ $block }__label {
+      font-weight: 600;
+    }
   }
 }
+
+@media (max-width: 650px) {
+  .detail {
+    $block: &;
+    width: 10rem;
+    height: 3rem;
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+  
+    &__icon {
+      font-size: 1rem;
+      height: 1rem;
+      width: 1rem;
+      padding-right: 0.5rem;
+    }
+  
+    &__content {
+      padding-left: 0.8rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+// @media (max-width: 500px) {
+//   .detail {
+//     $block: &;
+//     width: 9rem;
+//     padding: 0.2rem;
+
+//     &__icon {
+//       font-size: 1rem;
+//       height: 1rem;
+//       width: 1rem;
+//       padding-right: 0.5rem;
+//     }
+//   }
+// }

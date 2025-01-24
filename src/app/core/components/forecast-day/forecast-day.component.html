@@ -1,0 +1,14 @@
+<mat-card class="day">
+  <p class="day__name">{{ moment(forecastday().date).format("dddd") }}</p>
+  <div class="day__details">
+    <div class="day__values">
+      <p>Max {{ forecastday().day.maxtemp_c }}°C</p>
+      <p>Min {{ forecastday().day.mintemp_c }}°C</p>
+      <p>Avg {{ forecastday().day.avgtemp_c }}°C</p>
+    </div>
+    <div class="day__description">
+      <p>{{ forecastday().day.condition.text }}</p>
+      <img [src]="forecastday().day.condition.icon" alt="Weather icon" />
+    </div>
+  </div>
+</mat-card>

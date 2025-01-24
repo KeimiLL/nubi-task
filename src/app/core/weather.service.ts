@@ -26,7 +26,7 @@ export class WeatherService {
 
   loadCurrentWeather(city: string): void {
     this.#weatherHttpService
-      .getCurrentWeatherData$(city)
+      .getWeatherForecastData$(city)
       .pipe(
         tap((currentWeather) => {
           this.currentWeather.set(currentWeather);

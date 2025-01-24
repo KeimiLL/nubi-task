@@ -1,0 +1,36 @@
+.day {
+  $block: &;
+  background-color: transparent;
+  width: 17rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+  &__name {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    #{$block}__description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      img {
+        width: 3rem;
+      }
+    }
+  }
+}

@@ -5,10 +5,11 @@ import { WeatherService } from '../../weather.service';
 import moment from 'moment';
 import { WeatherDetailComponent } from '../weather-detail/weather-detail.component';
 import { WEATHER_DETAILS } from '../../constants/weather-details.constants';
-import { Details } from '../../models/weather.model';
+import { Details, ForecastDay } from '../../models/weather.model';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ForecastDayComponent } from '../forecast-day/forecast-day.component';
 
 @Component({
   selector: 'app-weather',
@@ -20,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    ForecastDayComponent
   ],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.scss',
@@ -39,6 +41,10 @@ export class WeatherComponent {
 
   protected getValueForDetail(detail: keyof Details): number | null {
     return this.weatherService.currentWeather()?.current?.[detail] ?? null;
+  }
+
+  protected getForecastDays(): ForecastDay[] | null {
+    return this.weatherService.currentWeather()?.forecast.forecastday ?? null;
   }
 
   protected submitSearch(): void {

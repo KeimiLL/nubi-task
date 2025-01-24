@@ -1,8 +1,7 @@
 @use "../../../variables.scss" as variables;
+@use "@angular/material" as mat;
 
 :host {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +9,7 @@
 
 .weather {
   $block: &;
-  width: 70rem;
+  width: 75rem;
   margin: 1rem 2rem;
   background-color: transparent;
   backdrop-filter: blur(3rem);
@@ -32,62 +31,148 @@
       gap: 1rem;
       padding: 1rem 1rem 0 0;
 
+      @include mat.form-field-density(-1);
+
       button {
         margin-bottom: 1rem;
       }
     }
   }
-  &__header {
+
+  &__content {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 3rem;
+    gap: 2rem;
 
-    #{ $block }__icon {
-      width: 10rem;
+    #{ $block }__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 3rem;
+
+      #{ $block }__icon {
+        width: 10rem;
+      }
+
+      #{ $block }__place {
+        font-size: 2rem;
+        font-weight: bolder;
+        margin: 1rem;
+      }
+
+      #{ $block }__date {
+        font-size: 1.2rem;
+        margin: 1rem;
+      }
     }
 
-    #{ $block }__place {
-      font-size: 2rem;
-      font-weight: bolder;
-      margin: 1rem;
+    #{ $block }__main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+
+      #{ $block }__temperature {
+        font-size: 8rem;
+        font-weight: lighter;
+      }
+
+      #{ $block }__symbol,
+      #{ $block }__description {
+        font-size: 2rem;
+      }
     }
 
-    #{ $block }__date {
-      font-size: 1.2rem;
-      margin: 1rem;
+    #{ $block }__details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      padding-bottom: 1rem;
     }
   }
 
-  &__main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    p {
-      margin: 0;
-    }
-
-    #{ $block }__temperature {
-      font-size: 8rem;
-      font-weight: lighter;
-    }
-
-    #{ $block }__symbol,
-    #{ $block }__description {
-      font-size: 2rem;
-    }
-  }
-
-  &__details {
+  &__forecast {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding-top: 2rem;
   }
 
   ::ng-deep mat-error {
     color: tomato;
+  }
+}
+
+@media (max-width: 1150px) or (max-height: 850px) {
+  .weather {
+    $block: &;
+
+    &__content {
+      flex-direction: column;
+      #{ $block }__header {
+        padding-right: 1rem;
+
+        #{ $block }__icon {
+          width: 5rem;
+        }
+
+        #{ $block }__place {
+          font-size: 1.3rem;
+          margin: 0.5rem;
+        }
+
+        #{ $block }__date {
+          font-size: 1rem;
+          margin: 0.3rem;
+        }
+      }
+
+      #{ $block }__main {
+        #{ $block }__temperature {
+          font-size: 5rem;
+          font-weight: lighter;
+        }
+
+        #{ $block }__symbol,
+        #{ $block }__description {
+          font-size: 1.2rem;
+        }
+      }
+
+      #{ $block }__details {
+        flex-direction: row;
+        width: 75%;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .weather {
+    $block: &;
+
+    &__content {
+      #{ $block }__details {
+        flex-direction: row;
+        width: 95%;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .weather {
+    $block: &;
+
+    &__search {
+      #{ $block }__form {
+        @include mat.form-field-density(-3);
+      }
+    }
   }
 }
