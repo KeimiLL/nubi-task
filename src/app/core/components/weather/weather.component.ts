@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { WeatherService } from '../../weather.service';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { WeatherDetailComponent } from '../weather-detail/weather-detail.component';
 import { WEATHER_DETAILS } from '../../constants/weather-details.constants';
 import { Details, ForecastDay } from '../../models/weather.model';
@@ -30,7 +30,7 @@ import { ForecastDayComponent } from '../forecast-day/forecast-day.component';
 export class WeatherComponent {
   protected readonly WEATHER_DETAILS = WEATHER_DETAILS;
   protected readonly weatherService = inject(WeatherService);
-  protected readonly moment = moment;
+  protected readonly dayjs = dayjs;
 
   protected getValueForDetail(detail: keyof Details): number | null {
     return this.weatherService.currentWeather()?.current?.[detail] ?? null;

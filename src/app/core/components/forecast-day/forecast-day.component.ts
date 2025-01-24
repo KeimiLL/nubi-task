@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { ForecastDay } from '../../models/weather.model';
 import { MatCardModule } from '@angular/material/card';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-forecast-day',
@@ -11,6 +11,6 @@ import moment from 'moment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ForecastDayComponent {
-  moment = moment;
+  dayjs = dayjs;
   forecastday = input.required<ForecastDay>();
 }

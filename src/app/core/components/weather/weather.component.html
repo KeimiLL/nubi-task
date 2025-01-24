@@ -39,7 +39,7 @@
           </p>
           <p class="weather__date">
             {{
-              moment(weatherService.currentWeather()?.location?.localtime).format('dddd DD-MM-YYYY HH:mm')
+              dayjs(weatherService.currentWeather()?.location?.localtime).format('dddd DD-MM-YYYY HH:mm')
             }}
           </p>
         </div>

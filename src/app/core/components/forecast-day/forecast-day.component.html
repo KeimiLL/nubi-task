@@ -1,5 +1,5 @@
 <mat-card class="day">
-  <p class="day__name">{{ moment(forecastday().date).format("dddd") }}</p>
+  <p class="day__name">{{ dayjs(forecastday().date).format("dddd") }}</p>
   <div class="day__details">
     <div class="day__values">
       <p>Max {{ forecastday().day.maxtemp_c }}°C</p>
