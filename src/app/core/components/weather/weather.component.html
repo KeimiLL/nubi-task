@@ -1,4 +1,26 @@
 <mat-card class="weather">
+  <section class="weather__search">
+    <form
+      class="weather__form"
+      [formGroup]="weatherService.searchForm"
+      (ngSubmit)="submitSearch()"
+    >
+      <mat-form-field>
+        <mat-label>Enter city</mat-label>
+        <input
+          matInput
+          id="city"
+          type="text"
+          [formControlName]="'cityControl'"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" (click)="submitSearch()">
+        Search
+      </button>
+    </form>
+    <mat-error>{{ weatherService.errorMessage() }}</mat-error>
+  </section>
   <section class="weather__header">
     <img
       class="weather__icon"
@@ -27,6 +49,13 @@
       {{ weatherService.currentWeather()?.current?.condition?.text }}
     </p>
   </section>
-
-  <button mat-raised-button>Basic</button>
+  <section class="weather__details">
+    @for (detail of WEATHER_DETAILS; track detail.key) { @if
+    (weatherService.currentWeather()?.current) {
+    <app-weather-detail
+      [detail]="detail"
+      [value]="getValueForDetail(detail.key)"
+    ></app-weather-detail>
+    } }
+  </section>
 </mat-card>

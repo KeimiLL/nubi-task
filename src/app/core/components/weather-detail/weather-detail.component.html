@@ -1,1 +1,10 @@
-<p>weather-detail works!</p>
+<mat-card class="detail">
+  <mat-icon class="detail__icon" aria-label="Icon of weather detail">{{
+    detail().icon
+  }}</mat-icon>
+
+  <div class="detail__content">
+    <span class="detail__label">{{ detail().label }}</span>
+    <span class="detail__unit">{{ value() }} {{ detail().unit }}</span>
+  </div>
+</mat-card>

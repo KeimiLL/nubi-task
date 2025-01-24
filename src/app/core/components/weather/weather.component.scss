@@ -11,51 +11,83 @@
 .weather {
   $block: &;
   width: 70rem;
-  height: 50rem;
   margin: 1rem 2rem;
   background-color: transparent;
   backdrop-filter: blur(3rem);
   box-shadow: rgba(0, 0, 0, 0.16) 0 0.625rem 2.25rem 0,
     rgba(0, 0, 0, 0.06) 0 0 0 0.0625rem;
 
-    &__header {
+  &__search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    align-self: flex-end;
+
+    #{ $block }__form {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-      padding-right: 3rem;
-      
-      #{ $block }__icon {
-        width: 18rem;
-      }
+      gap: 1rem;
+      padding: 1rem 1rem 0 0;
 
-      #{ $block }__place {
-        font-size: 3rem;
-        font-weight: bolder;
-        margin: 1rem;
-      }
-
-      #{ $block }__date {
-        font-size: 1.7rem;
-        margin: 1rem;
+      button {
+        margin-bottom: 1rem;
       }
     }
+  }
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3rem;
 
-    &__main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      p {
-        margin: 0;
-      }
-
-      #{ $block }__temperature {
-        font-size: 10rem;
-      }
-      
-      #{ $block }__symbol, #{ $block }__description {
-        font-size: 2rem;
-      }
+    #{ $block }__icon {
+      width: 10rem;
     }
+
+    #{ $block }__place {
+      font-size: 2rem;
+      font-weight: bolder;
+      margin: 1rem;
+    }
+
+    #{ $block }__date {
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+
+    #{ $block }__temperature {
+      font-size: 8rem;
+      font-weight: lighter;
+    }
+
+    #{ $block }__symbol,
+    #{ $block }__description {
+      font-size: 2rem;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+  }
+
+  ::ng-deep mat-error {
+    color: tomato;
+  }
 }

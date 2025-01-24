@@ -10,15 +10,24 @@ export interface Condition {
   code: number;
 }
 
-export interface CurrentConditions {
+export interface Details {
   temp_c: number;
-  condition: Condition;
   wind_kph: number;
   humidity: number;
   feelslike_c: number;
   vis_km: number;
   pressure_mb: number;
-  precip_mm: number;
+}
+
+export interface DetailItem {
+  key: keyof Details;
+  label: string;
+  icon: string;
+  unit: string;
+}
+
+export interface CurrentConditions extends Details {
+  condition: Condition;
 }
 
 export interface CurrentWeather {
