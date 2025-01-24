@@ -1,0 +1,32 @@
+<mat-card class="weather">
+  <section class="weather__header">
+    <img
+      class="weather__icon"
+      [src]="weatherService.getLargeIconUrl()"
+      alt="Weather condition icon"
+    />
+    <div>
+      <p class="weather__place">
+        <span>{{ weatherService.currentWeather()?.location?.name }}</span
+        >,
+        <span>{{ weatherService.currentWeather()?.location?.country }}</span>
+      </p>
+      <p class="weather__date">
+        {{ formatDate(weatherService.currentWeather()?.location?.localtime) }}
+      </p>
+    </div>
+  </section>
+  <section class="weather__main">
+    <p>
+      <span class="weather__temperature">{{
+        weatherService.currentWeather()?.current?.temp_c
+      }}</span
+      ><span class="weather__symbol">&deg;C</span>
+    </p>
+    <p class="weather__description">
+      {{ weatherService.currentWeather()?.current?.condition?.text }}
+    </p>
+  </section>
+
+  <button mat-raised-button>Basic</button>
+</mat-card>

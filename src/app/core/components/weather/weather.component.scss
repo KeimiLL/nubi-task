@@ -1,0 +1,61 @@
+@use "../../../variables.scss" as variables;
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather {
+  $block: &;
+  width: 70rem;
+  height: 50rem;
+  margin: 1rem 2rem;
+  background-color: transparent;
+  backdrop-filter: blur(3rem);
+  box-shadow: rgba(0, 0, 0, 0.16) 0 0.625rem 2.25rem 0,
+    rgba(0, 0, 0, 0.06) 0 0 0 0.0625rem;
+
+    &__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 3rem;
+      
+      #{ $block }__icon {
+        width: 18rem;
+      }
+
+      #{ $block }__place {
+        font-size: 3rem;
+        font-weight: bolder;
+        margin: 1rem;
+      }
+
+      #{ $block }__date {
+        font-size: 1.7rem;
+        margin: 1rem;
+      }
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+
+      #{ $block }__temperature {
+        font-size: 10rem;
+      }
+      
+      #{ $block }__symbol, #{ $block }__description {
+        font-size: 2rem;
+      }
+    }
+}
