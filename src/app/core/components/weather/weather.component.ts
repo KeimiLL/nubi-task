@@ -24,20 +24,13 @@ import { ForecastDayComponent } from '../forecast-day/forecast-day.component';
     ForecastDayComponent
   ],
   templateUrl: './weather.component.html',
-  styleUrl: './weather.component.scss',
+  styleUrls: ['./weather.component.scss', './weather-media.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WeatherComponent {
   protected readonly WEATHER_DETAILS = WEATHER_DETAILS;
   protected readonly weatherService = inject(WeatherService);
-
-  constructor() {
-    moment.locale('pl');
-  }
-
-  protected formatDate(value: string | undefined): string {
-    return moment(value).format('dddd DD-MM-YYYY HH:mm');
-  }
+  protected readonly moment = moment;
 
   protected getValueForDetail(detail: keyof Details): number | null {
     return this.weatherService.currentWeather()?.current?.[detail] ?? null;
