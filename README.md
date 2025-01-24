@@ -13,6 +13,7 @@ This application was created with:
 - **Angular Signals**
 - **SCSS**
 - **HTML**
+- **TypeScript**
 
 ## Development server
 
