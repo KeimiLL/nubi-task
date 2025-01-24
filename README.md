@@ -15,6 +15,21 @@ This application was created with:
 - **HTML**
 - **TypeScript**
 
+## Installation
+
+```sh
+git clone https://github.com/KeimiLL/nubi-task.git
+cd nubi-task
+```
+if required: 
+```sh
+npm install
+```
+Now you can run dev server:
+```sh
+ng serve
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -26,3 +41,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Design preview
+
+![design preview image](./public/design.png)
